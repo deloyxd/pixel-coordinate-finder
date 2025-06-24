@@ -27,12 +27,25 @@
         backdrop-filter: blur(10px);
       }
 
-      h1 {
+      .title {
         text-align: center;
         color: #333;
         margin-bottom: 30px;
-        font-size: 2.5em;
         background: linear-gradient(45deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .title h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+
+      .title h4 {
+        max-width: 720px;
+        justify-self: center;
+        background: linear-gradient(45deg, #96a5e6, #a481c7);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -284,7 +297,19 @@
   </head>
   <body>
     <div class="container">
-      <h1>Pixel Coordinate Grid Tool</h1>
+      <div class="title">
+        <h1>Grid Index Finder - by Vyzymz</h1>
+        <h4>
+          An open-source online tool that lets you easily find the index of a
+          tile within a fixed grid of your choice. I made it with the help of
+          AI.<br />
+          <a
+            target="_blank"
+            href="https://github.com/deloyxd/pixel-coordinate-finder"
+            >👉 Check it out on Github! 👈</a
+          >
+        </h4>
+      </div>
 
       <div class="controls">
         <div class="control-group">
@@ -558,7 +583,9 @@
 
         coordinatesList.insertBefore(coordItem, coordinatesList.firstChild);
 
-        coordItem.addEventListener("click", () => selectItem(coordItem, col, row));
+        coordItem.addEventListener("click", () =>
+          selectItem(coordItem, col, row)
+        );
 
         // Keep only last 10 entries
         while (coordinatesList.children.length > 10) {
